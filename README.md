@@ -35,7 +35,7 @@ O sistema integra um **inventário automatizado** com um **calendário de evento
 
 ---
 
-## 🧩 Como Executar o Projeto Localmente
+
 
 
   
