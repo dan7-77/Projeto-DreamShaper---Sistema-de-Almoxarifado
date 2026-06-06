@@ -37,9 +37,7 @@ O sistema integra um **inventário automatizado** com um **calendário de evento
 
 ## 🧩 Como Executar o Projeto Localmente
 
-1. **Clone este repositório**:
-  ```bash
-git clone https://github.com/seu-usuario/se-alpha-almoxarifado.git
+
   
 
 
