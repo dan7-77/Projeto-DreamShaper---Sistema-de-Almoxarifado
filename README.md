@@ -38,7 +38,7 @@ O sistema integra um **inventário automatizado** com um **calendário de evento
 ## 🧩 Como Executar o Projeto Localmente
 
 1. **Clone este repositório**:
-   ```bash
+   ```bash https://github.com/dan7-77/Projeto-DreamShaper---Sistema-de-Almoxarifado.git
   
 
 
