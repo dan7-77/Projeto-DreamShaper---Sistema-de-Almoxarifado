@@ -1,0 +1,373 @@
+:root {
+  --bg-principal: #f8fafc;
+  --txt-principal: #0f172a;
+  --txt-secundario: #475569;
+  --primary: #1e3a8a;
+  --primary-light: #3b82f6;
+  --success: #15803d;
+  --success-bg: #dcfce7;
+  --warning: #b45309;
+  --warning-bg: #fef3c7;
+  --danger: #b91c1c;
+  --danger-bg: #fee2e2;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --radius-lg: 16px;
+  --radius-md: 8px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-principal);
+  font-family: "Inter", sans-serif;
+  color: var(--txt-principal);
+  padding: 2rem;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Topbar Corporativa */
+.app-header {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.brand-section h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-section p {
+  font-size: 0.875rem;
+  color: var(--txt-secundario);
+  margin-top: 0.25rem;
+}
+
+.kpi-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.kpi-card {
+  background: var(--bg-principal);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  min-width: 120px;
+}
+
+.kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--txt-principal);
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--txt-secundario);
+  letter-spacing: 0.05em;
+}
+
+/* Layout Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Cards Estilizados */
+.enterprise-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header-v2 {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-v2 h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--txt-principal);
+}
+
+.card-body-v2 {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* Formulários Corporativos */
+.form-grid-inline {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr auto;
+  gap: 1rem;
+  align-items: flex-end;
+  background: var(--bg-principal);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--txt-secundario);
+  text-transform: uppercase;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.875rem;
+  background-color: var(--card-bg);
+  color: var(--txt-principal);
+  transition: border-color 0.15s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Botões */
+.btn-enterprise {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary-ent {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary-ent:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary-ent {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--txt-secundario);
+}
+
+.btn-secondary-ent:hover {
+  background-color: var(--bg-principal);
+  color: var(--txt-principal);
+}
+
+/* Tabelas Corporativas */
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.ent-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.ent-table th {
+  background-color: var(--bg-principal);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--txt-secundario);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ent-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--txt-principal);
+}
+
+/* Badges de Status Modernas */
+.badge-ent {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.badge-success {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+.badge-warning {
+  background-color: var(--warning-bg);
+  color: var(--warning);
+}
+.badge-danger {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* Barra de Progresso de Capacidade */
+.progress-container {
+  background: var(--bg-principal);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.progress-bar-bg {
+  background-color: var(--border-color);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--success);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* Agenda / Lista de Eventos */
+.event-list {
+  list-style: none;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.event-card-v2 {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+}
+
+.event-meta h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.event-meta span {
+  font-size: 0.75rem;
+  color: var(--txt-secundario);
+}
+
+/* Painel Analytics Inteligente */
+.intelligence-panel {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.alert-box {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+.alert-danger {
+  background-color: var(--danger-bg);
+  border-left: 4px solid var(--danger);
+  color: #7f1d1d;
+}
+.alert-info {
+  background-color: #e0f2fe;
+  border-left: 4px solid #0369a1;
+  color: #0369a1;
+}
+
+/* Novo Módulo Corporativo: Logs de Auditoria */
+.audit-section {
+  grid-column: span 2;
+}
+
+.log-terminal {
+  background-color: #0f172a;
+  color: #38bdf8;
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.log-item {
+  margin-bottom: 0.25rem;
+}
+.log-time {
+  color: #64748b;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .audit-section {
+    grid-column: auto;
+  }
+  .form-grid-inline {
+    grid-template-columns: 1fr;
+  }
+}

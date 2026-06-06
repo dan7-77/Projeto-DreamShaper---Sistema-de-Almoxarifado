@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Inventory | Sistema Alfa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="Dream.css" rel="" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="app-header">
+        <div class="brand-section">
+          <h1>
+            🛡️ ALFA ERP
+            <span
+              style="
+                font-size: 0.75rem;
+                background: var(--primary);
+                color: white;
+                padding: 2px 8px;
+                border-radius: 4px;
+                vertical-align: middle;
+              "
+              >LOGÍSTICA</span
+            >
+          </h1>
+          <p>Sistema Avançado de Gestão de Suprimentos e Atividades</p>
+        </div>
+        <div class="kpi-container">
+          <div class="kpi-card">
+            <div class="kpi-value" id="kpiTotal">0</div>
+            <div class="kpi-label">Ativos Totais</div>
+          </div>
+          <div class="kpi-card">
+            <div
+              class="kpi-value"
+              id="kpiManutencao"
+              style="color: var(--danger)"
+            >
+              0
+            </div>
+            <div class="kpi-label">Retidos p/ Manut.</div>
+          </div>
+          <div class="kpi-card">
+            <div
+              class="kpi-value"
+              id="kpiCritico"
+              style="color: var(--warning)"
+            >
+              0
+            </div>
+            <div class="kpi-label">Abaixo Mínimo</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+        <main class="enterprise-card">
+          <div class="card-header-v2">
+            <h2>📦 Controle Operacional de Estoque</h2>
+            <span class="badge-ent badge-success">Módulo Sincronizado</span>
+          </div>
+          <div class="card-body-v2">
+            <div class="form-grid-inline">
+              <div class="form-group">
+                <label for="seletorMaterial">Item Controlado</label>
+                <select id="seletorMaterial" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <label for="tipoMovimento">Natureza da Operação</label>
+                <select id="tipoMovimento" class="form-control">
+                  <option value="entrada">📥 Entrada / Devolução Fiscal</option>
+                  <option value="saida">📤 Saída / Baixa Operacional</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="quantidadeMov">Qtd.</label>
+                <input
+                  type="number"
+                  id="quantidadeMov"
+                  class="form-control"
+                  value="1"
+                  min="1"
+                />
+              </div>
+              <button id="btnLancar" class="btn-enterprise btn-primary-ent">
+                Executar Lançamento
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="ent-table">
+                <thead>
+                  <tr>
+                    <th>Código/Item</th>
+                    <th>Saldo em Estoque</th>
+                    <th>Status Operacional</th>
+                    <th style="text-align: right">Ações de Governança</th>
+                  </tr>
+                </thead>
+                <tbody id="listaEstoqueGrid"></tbody>
+              </table>
+            </div>
+
+            <div class="progress-container">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  font-size: 0.85rem;
+                  font-weight: 500;
+                "
+              >
+                <span>📊 Indicador de Cobertura de Estoque (SLA)</span>
+                <span id="txtSaudePorcentagem">0%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="barraSaudeFill"></div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <aside class="enterprise-card">
+          <div class="card-header-v2">
+            <h2>📅 Planejamento de Demandas</h2>
+            <button
+              id="btnMockData"
+              class="btn-enterprise btn-secondary-ent"
+              style="padding: 4px 10px; font-size: 0.75rem"
+            >
+              + Injetar Evento Exemplo
+            </button>
+          </div>
+          <div class="card-body-v2">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+                background: var(--bg-principal);
+                padding: 1rem;
+                border-radius: var(--radius-md);
+                border: 1px solid var(--border-color);
+              "
+            >
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 0.5rem;
+                "
+              >
+                <input
+                  type="text"
+                  id="addNomeEvento"
+                  placeholder="Nome do Evento Institucional"
+                  class="form-control"
+                />
+                <input type="date" id="addDataEvento" class="form-control" />
+              </div>
+              <button
+                id="btnSalvarEvento"
+                class="btn-enterprise btn-primary-ent"
+                style="justify-content: center"
+              >
+                Adicionar Evento Oficial
+              </button>
+            </div>
+
+            <ul id="gridEventos" class="event-list"></ul>
+
+            <div class="intelligence-panel">
+              <h3
+                style="
+                  font-size: 0.875rem;
+                  font-weight: 700;
+                  color: var(--primary);
+                "
+              >
+                🎯 Relatório Analítico de Viabilidade
+              </h3>
+              <div
+                id="painelAnaliseInformativo"
+                style="
+                  font-size: 0.875rem;
+                  color: var(--txt-secundario);
+                  margin-top: 0.5rem;
+                "
+              >
+                Selecione uma ordem de atividade ativa para gerar o cruzamento
+                de dados de infraestrutura.
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="enterprise-card audit-section">
+          <div
+            class="card-header-v2"
+            style="background-color: #0f172a; border-bottom: none"
+          >
+            <h2
+              style="color: #f8fafc; font-size: 0.9rem; font-family: monospace"
+            >
+              📋 Trilha de Auditoria do Sistema (Logs em Tempo Real)
+            </h2>
+            <span
+              style="color: #64748b; font-size: 0.75rem; font-family: monospace"
+              >ISO 9001 Compliance</span
+            >
+          </div>
+          <div class="log-terminal" id="terminalLogs"></div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
